@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import api from '../services/api'
 import { Plus, Search, Edit, Trash2 } from 'lucide-react'
 import clsx from 'clsx'
