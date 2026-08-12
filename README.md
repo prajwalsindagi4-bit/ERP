@@ -1,16 +1,16 @@
-# Mini ERP + CRM System
+Mini ERP + CRM System
 
 This repository contains the source code for the Mini ERP + CRM System.
 
-## Local Setup Instructions
+Local Setup Instructions
 
 Follow these steps to run the application locally on your machine.
 
-### 1. Prerequisites
+1. Prerequisites
 - **Node.js** (v18 or higher)
 - **PostgreSQL** database (Local or Cloud-hosted like Neon/Supabase)
 
-### 2. Backend Setup (`/server`)
+ 2. Backend Setup (`/server`)
 1. Open a terminal and navigate to the backend directory:
    ```bash
    cd server
@@ -39,7 +39,7 @@ Follow these steps to run the application locally on your machine.
    npm run dev
    ```
 
-### 3. Frontend Setup (`/client`)
+ 3. Frontend Setup (`/client`)
 1. Open a new terminal and navigate to the frontend directory:
    ```bash
    cd client
@@ -59,15 +59,15 @@ Follow these steps to run the application locally on your machine.
 5. Open your browser and navigate to `http://localhost:5173`.
 
 
----
+-------------------------------------------------------------------------------------------------------------
 
-## Cloud Deployment Instructions
+ Cloud Deployment Instructions
 
-### 1. Database (Neon / Supabase)
+ 1. Database (Neon / Supabase)
 1. Create a PostgreSQL project on Neon.tech.
 2. Copy the Connection String (DATABASE_URL).
 
-### 2. Backend Deployment (Render)
+ 2. Backend Deployment (Render)
 1. Connect your GitHub repository to Render and create a **Web Service**.
 2. Configure the service:
    - **Root Directory**: `server`
@@ -77,7 +77,7 @@ Follow these steps to run the application locally on your machine.
 3. Add the Environment Variables (`DATABASE_URL`, `JWT_SECRET`, `CLIENT_URL`).
 4. Click Deploy.
 
-### 3. Frontend Deployment (Vercel)
+ 3. Frontend Deployment (Vercel)
 1. Connect your GitHub repository to Vercel.
 2. Configure the project:
    - **Root Directory**: `client`
