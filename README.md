@@ -1,48 +1,87 @@
 # Mini ERP + CRM System
 
-A full-stack, enterprise-grade ERP and CRM solution built with React, Node.js, Express, and PostgreSQL (via Prisma).
+This repository contains the source code for the Mini ERP + CRM System.
 
-## 1. Repository & Deployment Links
-- **GitHub Repository**: *(Pending push to your GitHub account)*
-- **Live Frontend URL**: *(Pending deployment, e.g., Vercel/Netlify)*
-- **Live Backend API URL**: *(Pending deployment, e.g., Render/Railway)*
+## Local Setup Instructions
 
-## 2. Test Login Credentials
-The database has been seeded with test accounts for each role. The password for all accounts is `password123`.
-- **Admin**: `admin@example.com`
-- **Sales**: `sales@example.com`
-- **Warehouse**: `warehouse@example.com`
-- **Accounts**: `accounts@example.com`
+Follow these steps to run the application locally on your machine.
 
-## 3. Postman Collection
-A Postman collection named `Postman_Collection.json` is included in the root directory. You can import this directly into Postman to test the API routes.
+### 1. Prerequisites
+- **Node.js** (v18 or higher)
+- **PostgreSQL** database (Local or Cloud-hosted like Neon/Supabase)
 
-## 4. Setup & Deployment Instructions
-
-### Local Development Setup
-1. **Database**: Ensure you have a PostgreSQL database running (or use Neon). Add your connection string to `server/.env` as `DATABASE_URL`.
-2. **Backend**:
+### 2. Backend Setup (`/server`)
+1. Open a terminal and navigate to the backend directory:
    ```bash
    cd server
+   ```
+2. Install dependencies:
+   ```bash
    npm install
+   ```
+3. Create a `.env` file in the `server` directory and configure the following variables:
+   ```env
+   DATABASE_URL="your_postgresql_connection_string"
+   JWT_SECRET="your_secure_random_string"
+   CLIENT_URL="http://localhost:5173"
+   ```
+4. Generate the Prisma Client and run database migrations:
+   ```bash
    npx prisma generate
    npx prisma db push
-   npx tsx prisma/seed.ts
+   ```
+5. Seed the database with test roles and data:
+   ```bash
+   npm run seed
+   ```
+6. Start the backend development server:
+   ```bash
    npm run dev
    ```
-3. **Frontend**:
+
+### 3. Frontend Setup (`/client`)
+1. Open a new terminal and navigate to the frontend directory:
    ```bash
    cd client
+   ```
+2. Install dependencies:
+   ```bash
    npm install
+   ```
+3. Create a `.env` file in the `client` directory:
+   ```env
+   VITE_API_URL="http://localhost:5000/api"
+   ```
+4. Start the frontend development server:
+   ```bash
    npm run dev
    ```
+5. Open your browser and navigate to `http://localhost:5173`.
 
-### Docker Deployment (Production)
-The project includes a `docker-compose.yml` for instant deployment.
-```bash
-# Add your DATABASE_URL and JWT_SECRET to the environment or a .env file, then run:
-docker-compose up --build -d
-```
 
-## 5. Architecture Overview
-Please see the [Architecture Documentation](file:///docs/architecture.md) for a complete breakdown of the stack, frameworks, and database design.
+---
+
+## Cloud Deployment Instructions
+
+### 1. Database (Neon / Supabase)
+1. Create a PostgreSQL project on Neon.tech.
+2. Copy the Connection String (DATABASE_URL).
+
+### 2. Backend Deployment (Render)
+1. Connect your GitHub repository to Render and create a **Web Service**.
+2. Configure the service:
+   - **Root Directory**: `server`
+   - **Language**: `Node`
+   - **Build Command**: `npm install && npx prisma generate && npm run build`
+   - **Start Command**: `npm run start`
+3. Add the Environment Variables (`DATABASE_URL`, `JWT_SECRET`, `CLIENT_URL`).
+4. Click Deploy.
+
+### 3. Frontend Deployment (Vercel)
+1. Connect your GitHub repository to Vercel.
+2. Configure the project:
+   - **Root Directory**: `client`
+   - **Framework Preset**: `Vite`
+3. Add the Environment Variable:
+   - `VITE_API_URL` (Set this to your live Render API URL, e.g., `https://your-backend.onrender.com/api`)
+4. Click Deploy.
