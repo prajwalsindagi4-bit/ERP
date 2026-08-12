@@ -85,3 +85,15 @@ Follow these steps to run the application locally on your machine.
 3. Add the Environment Variable:
    - `VITE_API_URL` (Set this to your live Render API URL, e.g., `https://your-backend.onrender.com/api`)
 4. Click Deploy.
+
+---
+
+## API Documentation (Postman)
+To explore and test the backend API routes, a complete Postman collection is included in this repository.
+
+1. Locate the `postman_collection.json` file in the root directory.
+2. Open [Postman](https://www.postman.com/) (Desktop or Web).
+3. Click **Import** and select the `postman_collection.json` file.
+4. Set your Environment Variables in Postman:
+   - Make sure your Base URL is pointing to your local server (`http://localhost:5000`) or your live cloud URL.
+   - Login with any of the seeded roles to automatically capture the JWT token and use it for authenticated routes.
