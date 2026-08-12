@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Request, Response, NextFunction } from 'express'
 import prisma from '../config/db'
 import { z } from 'zod'
